@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Show {
-    private String title;
-    private int duration;
-    private Director director;
-    private ArrayList<Actor> listOfActors;
+    public String title;
+    public int duration;
+    public Director director;
+    public ArrayList<Actor> listOfActors;
     protected String typeOfShow = "обычного";
 
     public Show(String title, int duration, Director director) {
@@ -15,27 +15,28 @@ public class Show {
     }
 
     public void printActors(){
-        if(listOfActors.size() == 0){
+        if(listOfActors.isEmpty()){
             System.out.println("В данном представлении пока что нет актеров!");
             return;
         }
         System.out.println("\nАктеры " + typeOfShow + " спектакля:");
         for(Actor actor : listOfActors){
-            System.out.println(actor.toString());
+            System.out.println(actor);
         }
     }
 
+    public void printDirector(){
+        System.out.println("Режисером спектакля " + title +  " является: " + director);
+    }
+
     public void addActor(Actor actor){
-        if(listOfActors.size() == 0){
+        if(listOfActors.isEmpty()){
             listOfActors.add(actor);
             System.out.println("Актер успешно добавлен!");
             return;
         }
         for(Actor act : listOfActors){
-            if(actor.equal(act) == -1){
-                System.out.println("Неправильный формат данных или нулевая ссылка!");
-                return;
-            } else if(actor.equal(act) == 1){
+            if(actor.equals(act)) {
                 System.out.println("Такой актер уже существует!");
                 return;
             }
@@ -45,18 +46,21 @@ public class Show {
     }
 
     public void replaceActor(Actor actor, String surname){
-        if(listOfActors.size() == 0){
+        if(listOfActors.isEmpty()){
             System.out.println("В данном представлении пока что нет актеров!");
             return;
         }
-        for(Actor act : listOfActors){
-            if(surname.equals(act.getSurname())){
-                listOfActors.remove(act);
-                listOfActors.add(actor);
+        boolean found = false;
+        for(int i = 0; i < listOfActors.size(); i++){
+            Actor act = listOfActors.get(i);
+            if(surname.equals(act.surname)){
+                listOfActors.set(i, actor);
                 System.out.println("\nАктер успешно заменен!");
-                return;
+                found = true;
             }
         }
-        System.out.println("\nАктера с такой фамилией найти не удалось!");
+        if(!found){
+            System.out.println("\nАктера с такой фамилией найти не удалось!");
+        }
     }
 }

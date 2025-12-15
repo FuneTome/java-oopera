@@ -6,9 +6,4 @@ public class Ballet extends MusicalShow {
         this.chorejgrapher = chorejgrapher;
         this.typeOfShow = "балетного";
     }
-
-    @Override
-    public void printActors() {
-        super.printActors();
-    }
 }

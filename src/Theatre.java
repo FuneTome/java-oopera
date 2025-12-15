@@ -27,6 +27,10 @@ public class Theatre {
         ballet.addActor(Vdovina);
         ballet.addActor(Butorin);
 
+        show.printDirector();
+        opera.printDirector();
+        ballet.printDirector();
+
         show.printActors();
         opera.printActors();
         ballet.printActors();

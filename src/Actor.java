@@ -11,8 +11,7 @@ public class Actor extends Person {
     @Override
     public String toString() {
         return "Актер{ " +
-                "Фамилия: " + getSurname() +
-                " Имя: " + getName() +
+                super.toString() +
                 " (Рост: " + height +
                 " см.)}";
     }
@@ -23,17 +22,16 @@ public class Actor extends Person {
         1 - если такой человек есть
         0 - если такого нет
      */
-    public int equal(Object o) {
-        if (this == o) return 1;
-        if (o == null || getClass() != o.getClass()) return -1;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Actor actor = (Actor) o;
-        if(height == actor.height && Objects.equals(getName(), actor.getName()) && Objects.equals(getSurname(), actor.getSurname())) {
-            return 1;
-        }
-        return 0;
+        return height == actor.height && Objects.equals(name, actor.name) && Objects.equals(surname, actor.surname);
     }
 
-    public void replaceActor(Actor actor) {
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, height);
     }
 }

@@ -9,8 +9,7 @@ public class Director extends Person {
     @Override
     public String toString() {
         return "Режисер{ " +
-                "Фамилия: " + getSurname() +
-                "Имя: " + getName() +
+                super.toString() +
                 " }";
     }
 }

@@ -1,6 +1,6 @@
 public class Person {
-    private String name;
-    private String surname;
+    public String name;
+    public String surname;
     private Gender gender;
 
     public Person(String name, String surname, Gender gender) {
@@ -9,11 +9,9 @@ public class Person {
         this.gender = gender;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        return "Имя: " + name +
+                ", Фамилия: " + surname;
     }
 }

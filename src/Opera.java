@@ -7,8 +7,4 @@ public class Opera extends MusicalShow {
         this.typeOfShow = "оперного";
     }
 
-    @Override
-    public void printActors() {
-        super.printActors();
-    }
 }
