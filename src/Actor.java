@@ -16,12 +16,6 @@ public class Actor extends Person {
                 " см.)}";
     }
 
-    /*
-        Функция сравнения при добавлении актеров
-        -1 - если ошибка
-        1 - если такой человек есть
-        0 - если такого нет
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
